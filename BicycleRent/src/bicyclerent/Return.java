@@ -9,7 +9,7 @@ package bicyclerent;
  *
  * @author Gabriel
  */
-public class Return extends javax.swing.JPanel {
+public class Return extends javax.swing.JFrame {
 
     /**
      * Creates new form Return
