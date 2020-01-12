@@ -5,19 +5,112 @@
  */
 package bicyclerent;
 
+import bicyclerent.dao.SepedaDao;
+import bicyclerent.dao.TransactionDao;
+import bicyclerent.dto.SepedaForRentDto;
+import bicyclerent.entity.TransactionEntity;
+import bicyclerent.entity.UserEntity;
+import java.awt.HeadlessException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Gabriel
  */
 public class Home extends javax.swing.JFrame {
 
+    
+    private Boolean STATUS_USER = null;
+    private static final Integer rent = 1;
+    private static final Integer ret = 0;
+    private boolean statusRent = false;
+    private SepedaDao sepedaDao = null;
+    private SepedaForRentDto sepedaDto = null;
+    List<SepedaForRentDto> listSepeda  = null;
+    private UserEntity user = null;
+    private TransactionDao transDao= null;
+    private TransactionEntity transEntity = null;
     /**
      * Creates new form Home
      */
-    public Home() {
+    
+    public Home() throws HeadlessException {
         initComponents();
     }
 
+    public Home(UserEntity user) {
+        initComponents();
+        dataForm.setEditable(false);
+        balikinForm.setEditable(false);
+        this.user = user;
+        try {
+            transDao = new TransactionDao();
+            transEntity = transDao.checkUser(user.getUserId());
+            
+            sepedaDao = new SepedaDao();
+            listSepeda = sepedaDao.getAllForRent();
+           resetAll();
+           if(transEntity != null){
+               STATUS_USER = true;
+               setAllForm();
+           }
+        } catch (Exception e) {
+            e.printStackTrace();
+            
+        }
+        
+        viewMenu.removeAll();
+        viewMenu.add(startForm);
+        viewMenu.repaint();
+        viewMenu.revalidate();
+    }
+
+    private void setAllForm(){
+        rentBtn.setEnabled(false);
+        returnBtn.setEnabled(true);
+        jLabel5.setText("STATUS BELUM BALIKIN");
+        jLabel10.setText(transEntity.getInvoice());
+        idsepedaForm.setText(transEntity.getSepedaId());
+        pilihSepeda();
+        SimpleDateFormat s = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
+        dataForm.setText(s.format(transEntity.getStartedDate()));
+        if(transEntity.getEndDate() != null){
+            
+        balikinForm.setText(s.format(transEntity.getEndDate()));
+        }
+    }
+    
+    private void pilihSepeda(){
+        namaSepedaForm.removeAllItems();
+            namaSepedaForm.addItem("Pilih Item");
+            for (SepedaForRentDto sepedaForRentDto : listSepeda) {
+                namaSepedaForm.addItem(sepedaForRentDto.getNamaSepeda());
+                if(transEntity.getSepedaId().equals(sepedaForRentDto.getSepedaId())){
+                    namaSepedaForm.setSelectedItem(sepedaForRentDto.getNamaSepeda());
+                }
+            }
+    }
+    private void resetAll(){
+        STATUS_USER = false;
+        rentBtn.setEnabled(true);
+        returnBtn.setEnabled(false);
+        jLabel5.setText("ANDA MAU PINJAM ?");
+        jLabel10.setText("Invoice");
+        idsepedaForm.setText("");
+        resetSepeda();
+        dataForm.setText("");
+        balikinForm.setText("");
+    }
+    private void resetSepeda(){
+         namaSepedaForm.removeAllItems();
+            namaSepedaForm.addItem("Pilih Item");
+            for (SepedaForRentDto sepedaForRentDto : listSepeda) {
+                namaSepedaForm.addItem(sepedaForRentDto.getNamaSepeda());
+            }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,11 +124,25 @@ public class Home extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        rentViewBtn = new javax.swing.JButton();
+        historyBtn = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        viewMenu = new javax.swing.JPanel();
+        startForm = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        idsepedaForm = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        namaSepedaForm = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        dataForm = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        balikinForm = new javax.swing.JTextField();
+        rentBtn = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        returnBtn = new javax.swing.JButton();
+        History = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,26 +182,149 @@ public class Home extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(153, 153, 153));
         jLabel1.setText("Designed by seadanya");
 
-        jButton1.setText("Rent Bicycle");
+        rentViewBtn.setText("Rent Bicycle");
+        rentViewBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rentViewBtnActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Return Bicycle");
-
-        jButton3.setText("Add New Bicycle");
+        historyBtn.setText("History Transaction");
+        historyBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                historyBtnActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Logout");
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        viewMenu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        viewMenu.setLayout(new java.awt.CardLayout());
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        jLabel5.setFont(new java.awt.Font("Myanmar Text", 0, 24)); // NOI18N
+        jLabel5.setText("Rent");
+
+        jLabel6.setText("ID SEPEDA");
+
+        idsepedaForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idsepedaFormActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("Nama Sepeda");
+
+        namaSepedaForm.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        namaSepedaForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                namaSepedaFormActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Mulai Pinjam");
+
+        jLabel9.setText("Balikin");
+
+        rentBtn.setText("Pinjam");
+        rentBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rentBtnActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setText("Invoice");
+
+        returnBtn.setText("Balikin");
+        returnBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                returnBtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout startFormLayout = new javax.swing.GroupLayout(startForm);
+        startForm.setLayout(startFormLayout);
+        startFormLayout.setHorizontalGroup(
+            startFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(startFormLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(startFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(startFormLayout.createSequentialGroup()
+                        .addComponent(rentBtn)
+                        .addGap(18, 18, 18)
+                        .addComponent(returnBtn)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(startFormLayout.createSequentialGroup()
+                        .addGroup(startFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(startFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(idsepedaForm)
+                            .addComponent(namaSepedaForm, 0, 353, Short.MAX_VALUE)))
+                    .addGroup(startFormLayout.createSequentialGroup()
+                        .addGroup(startFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9))
+                        .addGap(18, 18, 18)
+                        .addGroup(startFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(dataForm, javax.swing.GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE)
+                            .addComponent(balikinForm)))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        startFormLayout.setVerticalGroup(
+            startFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(startFormLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(startFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(idsepedaForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(startFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(namaSepedaForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(startFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(dataForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(startFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(balikinForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(startFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rentBtn)
+                    .addComponent(returnBtn)
+                    .addComponent(jLabel10))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
+
+        viewMenu.add(startForm, "card3");
+
+        jLabel3.setFont(new java.awt.Font("Myanmar Text", 0, 24)); // NOI18N
+        jLabel3.setText("History Transaction");
+
+        javax.swing.GroupLayout HistoryLayout = new javax.swing.GroupLayout(History);
+        History.setLayout(HistoryLayout);
+        HistoryLayout.setHorizontalGroup(
+            HistoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HistoryLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addContainerGap(354, Short.MAX_VALUE))
+        );
+        HistoryLayout.setVerticalGroup(
+            HistoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HistoryLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addContainerGap(316, Short.MAX_VALUE))
+        );
+
+        viewMenu.add(History, "card2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,17 +335,15 @@ public class Home extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(viewMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(rentViewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(historyBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton4)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel1)
@@ -125,13 +353,12 @@ public class Home extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(viewMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
+                    .addComponent(rentViewBtn)
+                    .addComponent(historyBtn)
                     .addComponent(jButton4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
@@ -141,33 +368,101 @@ public class Home extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void historyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historyBtnActionPerformed
+        // TODO add your handling code here:
+            viewMenu.removeAll();
+            viewMenu.add(History);
+            viewMenu.repaint();
+            viewMenu.revalidate();
+        
+        
+    }//GEN-LAST:event_historyBtnActionPerformed
+
+    private void rentViewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentViewBtnActionPerformed
+            viewMenu.removeAll();
+            viewMenu.add(startForm);
+            viewMenu.repaint();
+            viewMenu.revalidate();
+        
+    }//GEN-LAST:event_rentViewBtnActionPerformed
+
+    private void idsepedaFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idsepedaFormActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idsepedaFormActionPerformed
+
+    private void rentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentBtnActionPerformed
+        try {
+            transDao = new TransactionDao();
+            transEntity = new TransactionEntity();
+            transEntity.setSepedaId(idsepedaForm.getText());
+            transEntity.setUserId(user.getUserId());
+            transEntity.setStatus(rent);
+            transEntity.setStartedDate(new Date());
+            if(transDao.insert(transEntity)){
+                JOptionPane.showMessageDialog(this, "Suksess");
+            }else{
+                JOptionPane.showMessageDialog(this, "Gagal");
+            }
+                    
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }//GEN-LAST:event_rentBtnActionPerformed
+
+    private void namaSepedaFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaSepedaFormActionPerformed
+       idsepedaForm.setEditable(false);
+//       idsepedaForm.setText("hei");
+        System.out.println("Test");
+        for (SepedaForRentDto s : listSepeda) {
+            if (s.getNamaSepeda()== String.valueOf(namaSepedaForm.getSelectedItem())) idsepedaForm.setText(s.getSepedaId());
+        }
+    }//GEN-LAST:event_namaSepedaFormActionPerformed
+
+    private void returnBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnBtnActionPerformed
+         try {
+            transDao = new TransactionDao();
+            transEntity = new TransactionEntity();
+            transEntity.setInvoice(jLabel10.getText());
+            transEntity.setSepedaId(idsepedaForm.getText());
+            transEntity.setUserId(user.getUserId());
+            transEntity.setStatus(ret);
+            transEntity.setStartedDate(new SimpleDateFormat("dd-MM-yyyy hh:mm:ss").parse(dataForm.getText()));
+            transEntity.setEndDate(new Date());
+            if(transDao.update(transEntity)){
+                JOptionPane.showMessageDialog(this, "Suksess");
+                resetAll();
+            }else{
+                JOptionPane.showMessageDialog(this, "Gagal");
+            }
+                    
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }//GEN-LAST:event_returnBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
+try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -177,14 +472,28 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JPanel History;
+    private javax.swing.JTextField balikinForm;
+    private javax.swing.JTextField dataForm;
+    private javax.swing.JButton historyBtn;
+    private javax.swing.JTextField idsepedaForm;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JComboBox<String> namaSepedaForm;
+    private javax.swing.JButton rentBtn;
+    private javax.swing.JButton rentViewBtn;
+    private javax.swing.JButton returnBtn;
+    private javax.swing.JPanel startForm;
+    private javax.swing.JPanel viewMenu;
     // End of variables declaration//GEN-END:variables
 }
