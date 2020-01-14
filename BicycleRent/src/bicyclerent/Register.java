@@ -164,6 +164,11 @@ public class Register extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    private void redirectToLogin() {
+        this.setVisible(false);
+        new Login().setVisible(true);
+    }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 //        jButton1.setEnabled(false);
         try {

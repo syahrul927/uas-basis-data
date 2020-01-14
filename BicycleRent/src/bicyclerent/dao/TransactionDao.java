@@ -6,6 +6,8 @@
 package bicyclerent.dao;
 
 import bicyclerent.Func.Koneksi;
+import bicyclerent.dto.HistoryTransactionDto;
+import bicyclerent.dto.SepedaForRentDto;
 import bicyclerent.entity.TransactionEntity;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,6 +15,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -24,6 +28,19 @@ public class TransactionDao {
 
     public TransactionDao() throws SQLException{
         conn = Koneksi.getKoneksi();
+    }
+    
+    public List<HistoryTransactionDto> getHistory(String userId) throws SQLException, ParseException{
+        String sql = "select t.transactionid , s.namasepeda, t.starteddate, t.enddate from TRANSACTION t join TB_USER u ON t.USERID = u.userid join sepeda s on s.sepedaid = t.sepedaid where t.userid = ?";
+        List<HistoryTransactionDto> list = new ArrayList<>();
+        PreparedStatement state = conn.prepareStatement(sql);
+        state.setString(1, userId);
+        ResultSet rs = state.executeQuery();
+        while(rs.next()){
+             HistoryTransactionDto s= new HistoryTransactionDto(rs);
+             list.add(s);
+        }
+        return list;
     }
     
     

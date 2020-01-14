@@ -7,9 +7,11 @@ package bicyclerent;
 
 import bicyclerent.dao.SepedaDao;
 import bicyclerent.dao.TransactionDao;
+import bicyclerent.dto.HistoryTransactionDto;
 import bicyclerent.dto.SepedaForRentDto;
 import bicyclerent.entity.TransactionEntity;
 import bicyclerent.entity.UserEntity;
+import bicyclerent.table.HistoryTable;
 import java.awt.HeadlessException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -29,6 +31,8 @@ public class Home extends javax.swing.JFrame {
     private boolean statusRent = false;
     private SepedaDao sepedaDao = null;
     private SepedaForRentDto sepedaDto = null;
+    private List<HistoryTransactionDto> listTrans = null;
+    private HistoryTable historyTable = null;
     List<SepedaForRentDto> listSepeda  = null;
     private UserEntity user = null;
     private TransactionDao transDao= null;
@@ -111,6 +115,16 @@ public class Home extends javax.swing.JFrame {
                 namaSepedaForm.addItem(sepedaForRentDto.getNamaSepeda());
             }
     }
+    
+    private void loadHistory(){
+        try {
+            listTrans = transDao.getHistory(user.getUserId());
+            historyTable = new HistoryTable(listTrans);
+            tableHistory.setModel(historyTable);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -143,6 +157,8 @@ public class Home extends javax.swing.JFrame {
         returnBtn = new javax.swing.JButton();
         History = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableHistory = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -307,21 +323,41 @@ public class Home extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Myanmar Text", 0, 24)); // NOI18N
         jLabel3.setText("History Transaction");
 
+        tableHistory.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tableHistory);
+
         javax.swing.GroupLayout HistoryLayout = new javax.swing.GroupLayout(History);
         History.setLayout(HistoryLayout);
         HistoryLayout.setHorizontalGroup(
             HistoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HistoryLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addContainerGap(354, Short.MAX_VALUE))
+                .addGroup(HistoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(HistoryLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel3))
+                    .addGroup(HistoryLayout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
         HistoryLayout.setVerticalGroup(
             HistoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HistoryLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
-                .addContainerGap(316, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         viewMenu.add(History, "card2");
@@ -330,7 +366,7 @@ public class Home extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -370,10 +406,12 @@ public class Home extends javax.swing.JFrame {
 
     private void historyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historyBtnActionPerformed
         // TODO add your handling code here:
+            
             viewMenu.removeAll();
             viewMenu.add(History);
             viewMenu.repaint();
             viewMenu.revalidate();
+            loadHistory();
         
         
     }//GEN-LAST:event_historyBtnActionPerformed
@@ -489,11 +527,13 @@ try {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> namaSepedaForm;
     private javax.swing.JButton rentBtn;
     private javax.swing.JButton rentViewBtn;
     private javax.swing.JButton returnBtn;
     private javax.swing.JPanel startForm;
+    private javax.swing.JTable tableHistory;
     private javax.swing.JPanel viewMenu;
     // End of variables declaration//GEN-END:variables
 }
