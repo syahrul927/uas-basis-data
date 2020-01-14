@@ -56,6 +56,11 @@ public class Register extends javax.swing.JFrame {
         jLabel4.setText("Password");
 
         jButton2.setText("Cancel");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 102));
 
@@ -197,6 +202,11 @@ public class Register extends javax.swing.JFrame {
     private void chekUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chekUserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_chekUserActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.setVisible(false);
+        new Login().setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

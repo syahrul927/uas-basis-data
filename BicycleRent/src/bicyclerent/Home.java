@@ -73,6 +73,12 @@ public class Home extends javax.swing.JFrame {
     }
 
     private void setAllForm(){
+        try {
+            
+            transEntity = transDao.checkUser(user.getUserId());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         rentBtn.setEnabled(false);
         returnBtn.setEnabled(true);
         jLabel5.setText("STATUS BELUM BALIKIN");
@@ -438,6 +444,7 @@ public class Home extends javax.swing.JFrame {
             transEntity.setStartedDate(new Date());
             if(transDao.insert(transEntity)){
                 JOptionPane.showMessageDialog(this, "Suksess");
+                setAllForm();
             }else{
                 JOptionPane.showMessageDialog(this, "Gagal");
             }

@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="68010FC0-BFC7-39B8-4EFC-1CE1668B45FD" containerWithKeyObject="BDEE2354-6789-F2F6-2F19-5EB2AFCB18FC" localFKIndex="09E05B11-4872-30E2-8D2F-D28A789F2496" name="FK_USERID">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>VIGNETTE</sourceObjSchema>
+<sourceObjName>FK_USERID</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:26 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<referredTableLongName>VIGNETTE.TB_USER</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>2CC76A94-C0BF-D755-DD67-971CE7E6AC17</referredTableID>
+<keyObject>1E1F6673-B0CD-6467-63D4-8C8AC9CDB1AE</keyObject>
+<referredKeyID>1E1F6673-B0CD-6467-63D4-8C8AC9CDB1AE</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>USERID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

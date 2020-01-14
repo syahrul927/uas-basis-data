@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="INVOICE_TRG" directorySegmentName="seg_0" id="B0BBBA8F-FE63-7D37-4E35-ABCF44F62F12">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>VIGNETTE</sourceObjSchema>
+<sourceObjName>INVOICE_TRG</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:05:48 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<actions>INSERT</actions>
+<body>BEGIN&lt;br/&gt;  &lt;&lt;COLUMN_SEQUENCES&gt;&gt;&lt;br/&gt;  BEGIN&lt;br/&gt; IF INSERTING THEN&lt;br/&gt;      SELECT CREATE_INVOICE() INTO :NEW.TRANSACTIONID FROM SYS.DUAL;&lt;br/&gt;    END IF;&lt;br/&gt;  END COLUMN_SEQUENCES;&lt;br/&gt;END;</body>
+<triggerTime>BEFORE</triggerTime>
+<owner>65107175-2473-337C-3F95-6BE824437A3F</owner>
+<table>ABBA7298-509F-C89C-7026-78D6A4272977</table>
+</TriggerOraclev10g>

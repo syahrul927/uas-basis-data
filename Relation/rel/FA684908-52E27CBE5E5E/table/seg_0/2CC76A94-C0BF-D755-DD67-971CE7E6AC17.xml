@@ -1,0 +1,114 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2CC76A94-C0BF-D755-DD67-971CE7E6AC17" schemaObject="A4C2BB27-5C7D-8468-C21B-D22D761E0F9C" name="TB_USER">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>VIGNETTE</sourceObjSchema>
+<sourceObjName>TB_USER</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:06 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="USERID" id="229226FC-39D8-8D98-4CCD-558F62F89541">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>TB_USER</sourceObjSchema>
+<sourceObjName>USERID</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:06 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 BYTE</dataTypeSize>
+<ownDataTypeParameters>200 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NAMA" id="5DEF7DD5-3799-EE37-F6A1-4D01FD6F07DA">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>TB_USER</sourceObjSchema>
+<sourceObjName>NAMA</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:06 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PHONE" id="69000F8A-323F-4933-30C9-545E349A602B">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>TB_USER</sourceObjSchema>
+<sourceObjName>PHONE</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:06 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PASSWORD" id="FF162DE9-9DBC-81C7-DD23-5252B0740891">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>TB_USER</sourceObjSchema>
+<sourceObjName>PASSWORD</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:06 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ISACTIVE" id="2FE93AB2-3F2E-E820-E977-61D6E8F3B616">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>TB_USER</sourceObjSchema>
+<sourceObjName>ISACTIVE</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:06 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C935514A-05DE-8848-C3A6-217008E7E88E" name="CUSTOMER_PK">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>VIGNETTE</sourceObjSchema>
+<sourceObjName>CUSTOMER_PK</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:06 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="229226FC-39D8-8D98-4CCD-558F62F89541"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1E1F6673-B0CD-6467-63D4-8C8AC9CDB1AE" schemaObject="A4C2BB27-5C7D-8468-C21B-D22D761E0F9C" name="CUSTOMER_PK">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>VIGNETTE</sourceObjSchema>
+<sourceObjName>CUSTOMER_PK</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:06 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="229226FC-39D8-8D98-4CCD-558F62F89541"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

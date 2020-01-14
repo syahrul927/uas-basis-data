@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="SEPEDA_TRG" directorySegmentName="seg_0" id="26CE1A83-5A19-41D8-C427-522DC5CF4594">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>VIGNETTE</sourceObjSchema>
+<sourceObjName>SEPEDA_TRG</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:05:16 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<actions>INSERT</actions>
+<body>BEGIN&lt;br/&gt;  &lt;&lt;COLUMN_SEQUENCES&gt;&gt;&lt;br/&gt;  BEGIN&lt;br/&gt; IF INSERTING THEN&lt;br/&gt;      SELECT SYS_GUID() INTO :NEW.SEPEDAID FROM SYS.DUAL;&lt;br/&gt;    END IF;&lt;br/&gt;  END COLUMN_SEQUENCES;&lt;br/&gt;END;</body>
+<triggerTime>BEFORE</triggerTime>
+<owner>65107175-2473-337C-3F95-6BE824437A3F</owner>
+<table>1B6104D3-2E83-E0BE-6C46-1AD6F2CB963B</table>
+</TriggerOraclev10g>

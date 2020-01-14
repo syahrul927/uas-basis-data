@@ -1,0 +1,82 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="TRANSACTION" directorySegmentName="seg_0" id="ABBA7298-509F-C89C-7026-78D6A4272977">
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:05:48 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<schemaObject>F64FF544-7694-4459-0C1F-5AEEB4775ACF</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>A4B6ED2A-5F08-29A5-ABD0-D440AF91A8B1</segment>
+<tableSpace>1955BA30-881B-399A-E965-D9A04F82E3D6</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="STATUS" id="15438A54-5FB2-276C-C977-F41D221BB7C8">
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:05:48 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<defaultValue>0</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="USERID" id="3BBECF56-57C4-B070-FE81-E18E912EF9C4">
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:05:48 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TRANSACTIONID" id="3BEE6C76-E48A-69CA-CA26-9628378EF12E">
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:05:48 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SEPEDAID" id="47572F27-2EB3-C9DC-93B3-1C55C676C589">
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:05:48 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="STARTEDDATE" id="67235744-AA07-E9BD-E020-94A214410BAC">
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:05:48 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ENDDATE" id="6F91FE8D-8E47-8550-949D-48FA9E568BD3">
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:05:48 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="TRANSAKSI_PK" id="355BC300-8443-D80A-64B6-CA465BAFDDD1">
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:05:48 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<schemaObject>F64FF544-7694-4459-0C1F-5AEEB4775ACF</schemaObject>
+<segment>6D171C7D-EF83-DFEC-EEC5-CC088ACF7E7F</segment>
+<tableSpace>1955BA30-881B-399A-E965-D9A04F82E3D6</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_SEPEDAID" id="1D1A4697-73CF-8BA1-608D-FCE07A5DE685">
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:05:48 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_USERID" id="CADEB9E5-6915-A5CD-5861-C7365A8B4F0E">
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:05:49 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="TRANSAKSI_PK" id="53290D30-CD36-480F-AAC8-43D01EBA2A69">
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:05:48 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<segment>6D171C7D-EF83-DFEC-EEC5-CC088ACF7E7F</segment>
+<tableSpace>1955BA30-881B-399A-E965-D9A04F82E3D6</tableSpace>
+<existingIndex>355BC300-8443-D80A-64B6-CA465BAFDDD1</existingIndex>
+<indexSegment>6D171C7D-EF83-DFEC-EEC5-CC088ACF7E7F</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

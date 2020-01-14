@@ -1,0 +1,157 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BDEE2354-6789-F2F6-2F19-5EB2AFCB18FC" schemaObject="A4C2BB27-5C7D-8468-C21B-D22D761E0F9C" name="TRANSACTION">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>VIGNETTE</sourceObjSchema>
+<sourceObjName>TRANSACTION</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:26 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="TRANSACTIONID" id="67CF8783-C615-6DBD-F9DC-962B1A652E03">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>TRANSACTION</sourceObjSchema>
+<sourceObjName>TRANSACTIONID</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:26 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USERID" id="6D439AD3-25D1-3B01-B095-46056D367F47">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>TRANSACTION</sourceObjSchema>
+<sourceObjName>USERID</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:26 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 BYTE</dataTypeSize>
+<ownDataTypeParameters>200 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="68010FC0-BFC7-39B8-4EFC-1CE1668B45FD" referredColumn="229226FC-39D8-8D98-4CCD-558F62F89541"/>
+</associations>
+</Column>
+<Column name="SEPEDAID" id="D9BE8A17-50CF-DFB7-FC88-8DA251BC0DA7">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>TRANSACTION</sourceObjSchema>
+<sourceObjName>SEPEDAID</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:26 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A880958F-5687-B775-2B87-5933BE699952" referredColumn="D73082C4-90BE-62A5-BD95-CA8CBDEA94E2"/>
+</associations>
+</Column>
+<Column name="STARTEDDATE" id="01E13F75-95F5-7D50-8722-63874FBF3E79">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>TRANSACTION</sourceObjSchema>
+<sourceObjName>STARTEDDATE</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:26 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ENDDATE" id="351212AF-7624-3B54-5AD2-2871F43AAE63">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>TRANSACTION</sourceObjSchema>
+<sourceObjName>ENDDATE</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:26 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STATUS" id="4C54E122-9081-AE28-EE05-2F661EF8B58A">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>TRANSACTION</sourceObjSchema>
+<sourceObjName>STATUS</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:26 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="0E8BC141-83D2-8D66-134F-6D6BED5B361A" name="TRANSAKSI_PK">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>VIGNETTE</sourceObjSchema>
+<sourceObjName>TRANSAKSI_PK</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:26 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="67CF8783-C615-6DBD-F9DC-962B1A652E03"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="77B053B9-7909-5955-976B-B16CCFBA13DD" schemaObject="A4C2BB27-5C7D-8468-C21B-D22D761E0F9C" name="TRANSAKSI_PK">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>VIGNETTE</sourceObjSchema>
+<sourceObjName>TRANSAKSI_PK</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:26 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="67CF8783-C615-6DBD-F9DC-962B1A652E03"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1C4A19B5-1387-817A-09E2-37DE2FE33FE5" name="FK_SEPEDAID">
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:26 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D9BE8A17-50CF-DFB7-FC88-8DA251BC0DA7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="09E05B11-4872-30E2-8D2F-D28A789F2496" name="FK_USERID">
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:26 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6D439AD3-25D1-3B01-B095-46056D367F47"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

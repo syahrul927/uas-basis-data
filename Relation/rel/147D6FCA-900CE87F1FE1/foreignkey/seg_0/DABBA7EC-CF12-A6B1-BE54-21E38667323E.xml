@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="DABBA7EC-CF12-A6B1-BE54-21E38667323E" containerWithKeyObject="ABBA7298-509F-C89C-7026-78D6A4272977" localFKIndex="1D1A4697-73CF-8BA1-608D-FCE07A5DE685" name="FK_SEPEDAID">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>VIGNETTE</sourceObjSchema>
+<sourceObjName>FK_SEPEDAID</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:05:48 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<referredTableLongName>VIGNETTE.SEPEDA</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>1B6104D3-2E83-E0BE-6C46-1AD6F2CB963B</referredTableID>
+<keyObject>069872F0-67C8-E332-9FDF-7B954F2DE736</keyObject>
+<referredKeyID>069872F0-67C8-E332-9FDF-7B954F2DE736</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>SEPEDAID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -1,0 +1,101 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1B6104D3-2E83-E0BE-6C46-1AD6F2CB963B" schemaObject="F64FF544-7694-4459-0C1F-5AEEB4775ACF" name="SEPEDA">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>VIGNETTE</sourceObjSchema>
+<sourceObjName>SEPEDA</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:05:15 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SEPEDAID" id="FB2E8DB3-662A-736E-10E6-5F7DFAA14031">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>SEPEDA</sourceObjSchema>
+<sourceObjName>SEPEDAID</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:05:15 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="JENISID" id="F42CD81E-A60C-395B-3D3A-076D7685E752">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>SEPEDA</sourceObjSchema>
+<sourceObjName>JENISID</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:05:15 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NAMASEPEDA" id="D5237719-6A40-72F5-5D82-5787978D4B98">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>SEPEDA</sourceObjSchema>
+<sourceObjName>NAMASEPEDA</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:05:15 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ISACTIVE" id="54534AA2-D2FB-12B4-00F1-B2D5CAED604B">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>SEPEDA</sourceObjSchema>
+<sourceObjName>ISACTIVE</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:05:15 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E4EF19B1-1806-D8FC-061F-F2400FB3776A" name="SEPEDA_PK">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>VIGNETTE</sourceObjSchema>
+<sourceObjName>SEPEDA_PK</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:05:16 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FB2E8DB3-662A-736E-10E6-5F7DFAA14031"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="069872F0-67C8-E332-9FDF-7B954F2DE736" schemaObject="F64FF544-7694-4459-0C1F-5AEEB4775ACF" name="SEPEDA_PK">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>VIGNETTE</sourceObjSchema>
+<sourceObjName>SEPEDA_PK</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:05:16 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FB2E8DB3-662A-736E-10E6-5F7DFAA14031"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

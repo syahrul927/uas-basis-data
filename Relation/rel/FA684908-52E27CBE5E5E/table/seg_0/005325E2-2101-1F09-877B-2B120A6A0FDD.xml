@@ -1,0 +1,90 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="005325E2-2101-1F09-877B-2B120A6A0FDD" schemaObject="A4C2BB27-5C7D-8468-C21B-D22D761E0F9C" name="JENISSEPEDA">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>VIGNETTE</sourceObjSchema>
+<sourceObjName>JENISSEPEDA</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:20 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="JENISID" id="7FA171F6-66BC-82AD-77B3-808EB3CE5FC5">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>JENISSEPEDA</sourceObjSchema>
+<sourceObjName>JENISID</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:20 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementSequenceName>JENISSEPEDA_SEQ</autoIncrementSequenceName>
+<autoIncrementTriggerName>JENISSEPEDA_TRG</autoIncrementTriggerName>
+</Column>
+<Column name="NAMAJENIS" id="133EC6E9-DDF7-482D-5AB6-9EAAC6763A51">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>JENISSEPEDA</sourceObjSchema>
+<sourceObjName>NAMAJENIS</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:20 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DESKRIPSI" id="2358BA1A-7FD0-41E8-8BBF-71AC91A733C8">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>JENISSEPEDA</sourceObjSchema>
+<sourceObjName>DESKRIPSI</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:20 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>300 BYTE</dataTypeSize>
+<ownDataTypeParameters>300 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8C1AB1D3-4D8A-B4C0-D831-ECF0AA7F555D" name="JENISSEPEDA_PK">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>VIGNETTE</sourceObjSchema>
+<sourceObjName>JENISSEPEDA_PK</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:20 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7FA171F6-66BC-82AD-77B3-808EB3CE5FC5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8FF0E472-664F-569B-619B-5AC43BA60ACC" schemaObject="A4C2BB27-5C7D-8468-C21B-D22D761E0F9C" name="JENISSEPEDA_PK">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>VIGNETTE</sourceObjSchema>
+<sourceObjName>JENISSEPEDA_PK</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:20 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7FA171F6-66BC-82AD-77B3-808EB3CE5FC5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,114 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E1F3EA81-32BF-BD6B-4C2A-E1D3D34166D2" schemaObject="A4C2BB27-5C7D-8468-C21B-D22D761E0F9C" name="SEPEDA">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>VIGNETTE</sourceObjSchema>
+<sourceObjName>SEPEDA</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:14 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SEPEDAID" id="D73082C4-90BE-62A5-BD95-CA8CBDEA94E2">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>SEPEDA</sourceObjSchema>
+<sourceObjName>SEPEDAID</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:14 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="JENISID" id="B7CBA94D-9CFE-61D0-5A86-78ECB0B05771">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>SEPEDA</sourceObjSchema>
+<sourceObjName>JENISID</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:14 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BCA67671-EA36-503B-076D-69DBE0F9B870" referredColumn="7FA171F6-66BC-82AD-77B3-808EB3CE5FC5"/>
+</associations>
+</Column>
+<Column name="NAMASEPEDA" id="64B158B6-EB4B-EF14-0304-A0B8B92A2745">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>SEPEDA</sourceObjSchema>
+<sourceObjName>NAMASEPEDA</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:14 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ISACTIVE" id="9375C5C0-623A-DC27-2012-19C7A205580B">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>SEPEDA</sourceObjSchema>
+<sourceObjName>ISACTIVE</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:14 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B51F7F77-736C-B201-146E-38F20F0C6122" name="SEPEDA_PK">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>VIGNETTE</sourceObjSchema>
+<sourceObjName>SEPEDA_PK</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:14 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D73082C4-90BE-62A5-BD95-CA8CBDEA94E2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6FBE9A49-0365-F805-36B3-5387573B4252" schemaObject="A4C2BB27-5C7D-8468-C21B-D22D761E0F9C" name="SEPEDA_PK">
+<sourceConnName>OKSepeda</sourceConnName>
+<sourceObjSchema>VIGNETTE</sourceObjSchema>
+<sourceObjName>SEPEDA_PK</sourceObjName>
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:14 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D73082C4-90BE-62A5-BD95-CA8CBDEA94E2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2D2AAFCE-94C5-0AA6-863F-4850018F5E43" name="FK_SEPEDAJENIS">
+<createdBy>User-PC</createdBy>
+<createdTime>2020-01-14 06:08:14 UTC</createdTime>
+<ownerDesignName>Relation</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B7CBA94D-9CFE-61D0-5A86-78ECB0B05771"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
